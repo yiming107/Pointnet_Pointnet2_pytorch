@@ -2,13 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a001e2d2-1acc-47a1-b897-e9fd243aacdc" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/prepare_pointnet2_features.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/save_compatible_model.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/Pointnet_Pointnet2_pytorch.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Pointnet_Pointnet2_pytorch.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_utils/ModelNetDataLoader.py" beforeDir="false" afterPath="$PROJECT_DIR$/data_utils/ModelNetDataLoader.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/pointnet2_cls_msg.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/pointnet2_cls_msg.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/train_cls.py" beforeDir="false" afterPath="$PROJECT_DIR$/train_cls.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -54,7 +47,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.prepare_pointnet2_features">
+  <component name="RunManager" selected="Python.train_cls">
     <configuration name="ModelNetDataLoader" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="Pointnet_Pointnet2_pytorch" />
       <option name="INTERPRETER_OPTIONS" value="" />
