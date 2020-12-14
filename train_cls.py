@@ -30,10 +30,10 @@ sys.path.append(os.path.join(ROOT_DIR, 'models'))
 def parse_args():
     '''PARAMETERS'''
     parser = argparse.ArgumentParser('PointNet')
-    parser.add_argument('--batch_size', type=int, default=20, help='batch size in training [default: 24]')
+    parser.add_argument('--batch_size', type=int, default=16, help='batch size in training [default: 24]')
     parser.add_argument('--dataset_name', type=str, default="replica", help='dataset name to use [default: modelnet40]') #modelnet40_normal_resampled
     parser.add_argument('--model', default='pointnet2_cls_msg', help='model name [default: pointnet_cls]')
-    parser.add_argument('--epoch',  default=300, type=int, help='number of epoch in training [default: 200]')
+    parser.add_argument('--epoch',  default=1000, type=int, help='number of epoch in training [default: 200]')
     parser.add_argument('--learning_rate', default=0.001, type=float, help='learning rate in training [default: 0.001]')
     parser.add_argument('--gpu', type=str, default='0', help='specify gpu device [default: 0]')
     parser.add_argument('--num_point', type=int, default=1024, help='Point Number [default: 1024]')
@@ -44,9 +44,9 @@ def parse_args():
     return parser.parse_args()
 
 
-def test(model, loader, device, num_class=40):
+def test(model, loader, device, num_class):
     mean_correct = []
-    class_acc = np.zeros((num_class,3))
+    class_acc = np.zeros((num_class, 3))
     for j, data in tqdm(enumerate(loader), total=len(loader)):
         points, target = data
         target = target[:, 0]
@@ -223,9 +223,10 @@ def main(args):
 
         ## This is for validation
         with torch.no_grad():
-            instance_acc, class_acc = test(classifier.eval(), testDataLoader, device)
+            instance_acc, class_acc = test(classifier.eval(), testDataLoader, device, num_class)
 
-            writer.add_scalar("Accuracy/test", instance_acc, epoch)
+            writer.add_scalar("ClassAccuracy/test", class_acc, epoch)
+            writer.add_scalar("InstanceAccuracy/test", instance_acc, epoch)
 
             if (instance_acc >= best_instance_acc):
                 best_instance_acc = instance_acc
